@@ -18,7 +18,7 @@ bool Game::init() {
 }
 
 void Game::run() {
-	sf::Clock clock;
+  sf::Clock clock;
   while (m_is_running) {
     float delta_time = clock.restart().asSeconds();
     update(delta_time);
@@ -34,7 +34,7 @@ void Game::set_scene(Scene *scene) {
 }
 
 void Game::update(float delta_time) {
-	if (m_next_scene != NULL) {
+  if (m_next_scene != NULL) {
     if (m_current_scene != NULL) {
       delete m_current_scene;
     }
@@ -48,20 +48,20 @@ void Game::update(float delta_time) {
   }
 
   // SFML events
-	sf::Event event;
-	while(m_window.pollEvent(event)) {
-		switch(event.type) {
-			case sf::Event::Closed:
-				on_close();
-				break;
-			case sf::Event::Resized:
+  sf::Event event;
+  while(m_window.pollEvent(event)) {
+    switch(event.type) {
+      case sf::Event::Closed:
+        on_close();
+        break;
+      case sf::Event::Resized:
         conf::scrwidth = event.size.width;
         conf::scrheight = event.size.height;
         m_window.setView(sf::View(sf::FloatRect(0, 0, conf::scrwidth, conf::scrheight)));
-			default:
-				break;
-		}
-	}
+      default:
+        break;
+    }
+  }
 
   // Input
   m_input.update();
@@ -73,29 +73,29 @@ void Game::update(float delta_time) {
 }
 
 void Game::render() {
-	m_window.clear(conf::clear_color);
-	if (m_current_scene != NULL) 
-		m_current_scene->render();
-	m_window.display();
+  m_window.clear(conf::clear_color);
+  if (m_current_scene != NULL) 
+    m_current_scene->render();
+  m_window.display();
 }
 
 // function when you want to close the game
 void Game::on_close() {
-	if (m_current_scene != NULL) {
-		m_current_scene->on_close();
+  if (m_current_scene != NULL) {
+    m_current_scene->on_close();
   }
-	std::cout << "* EXITING GAME" << std::endl;
-	close();
+  std::cout << "* EXITING GAME" << std::endl;
+  close();
 }
 
 // End game
 void Game::close() {
-	if (m_current_scene != NULL) {
-		delete m_current_scene;
-		m_current_scene = NULL;
-	}
+  if (m_current_scene != NULL) {
+    delete m_current_scene;
+    m_current_scene = NULL;
+  }
   m_is_running = false;
-	m_window.close();
+  m_window.close();
 }
 
 sf::RenderWindow &Game::window() {
