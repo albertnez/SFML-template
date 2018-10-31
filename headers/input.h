@@ -1,5 +1,4 @@
-#ifndef INPUT_H
-#define INPUT_H
+#pragma once
 
 #include "utils.h"
 
@@ -24,5 +23,3 @@ private:
   bool m_old_key_status[K_SIZE];
   sf::Keyboard::Key m_key_map[K_SIZE];
 };
-
-#endif // INPUT_H

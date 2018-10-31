@@ -1,6 +1,5 @@
-#ifndef GAME_OBJECT_H
-#define GAME_OBJECT_H
-// Forward declaration
+#pragma once
+
 class Game;
 
 class GameObject {
@@ -13,5 +12,3 @@ public:
 protected:
   Game& game;
 };
-
-#endif // GAME_OBJECT_H

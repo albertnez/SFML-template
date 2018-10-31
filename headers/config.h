@@ -1,5 +1,4 @@
-#ifndef CONFIG_H
-#define CONFIG_H
+#pragma once
 
 #include "utils.h"
 
@@ -24,6 +23,3 @@ namespace conf {
   extern sf::Vector2f player_size;
   extern float player_speed;
 }
-
-#endif // CONFIG_H
-
