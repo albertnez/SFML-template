@@ -1,5 +1,4 @@
-#ifndef PLAYER_H
-#define PLAYER_H
+#pragma once
 
 #include "game_object.h"
 #include "utils.h"
@@ -15,5 +14,3 @@ private:
   sf::Vector2f size;
   float speed;
 };
-
-#endif // PLAYER_H

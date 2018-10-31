@@ -1,9 +1,9 @@
-#ifndef GAME_H
-#define GAME_H
+#pragma once
 
-#include "scene.h"
 #include "input.h"
 #include "utils.h"
+
+class Scene;
 
 class Game {
 public:
@@ -24,9 +24,7 @@ public:
 protected:
   sf::RenderWindow m_window;
   Input m_input;
-  Scene *m_current_scene;
-  Scene *m_next_scene;
+  Scene* m_current_scene;
+  Scene* m_next_scene;
   bool m_is_running;
 };
-
-#endif // GAME_H

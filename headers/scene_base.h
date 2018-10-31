@@ -1,9 +1,11 @@
-#ifndef SCENE_BASE_H
-#define SCENE_BASE_H
+#pragma once
 
 #include "scene.h"
-#include "game_object.h"
+
 #include <list>
+
+class Game;
+class GameObject;
 
 class SceneBase : public Scene {
 public:
@@ -17,6 +19,3 @@ public:
 private:
   std::list<GameObject*> m_game_objects;
 };
-
-#endif // SCENE_BASE_H
-

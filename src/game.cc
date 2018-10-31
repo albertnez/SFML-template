@@ -1,11 +1,12 @@
 #include "game.h"
 #include "config.h"
+#include "scene.h"
 
 Game::Game() {
   m_current_scene = m_next_scene = NULL;
-  m_window.create(sf::VideoMode(conf::scrwidth, conf::scrheight, 32), 
-                  conf::window_title, 
-                  sf::Style::Default, 
+  m_window.create(sf::VideoMode(conf::scrwidth, conf::scrheight, 32),
+                  conf::window_title,
+                  sf::Style::Default,
                   conf::context_settings);
 }
 
@@ -42,7 +43,7 @@ void Game::update(float delta_time) {
     m_next_scene = NULL;
     if (!m_current_scene->init()) {
       delete m_current_scene;
-      m_current_scene = NULL; 
+      m_current_scene = NULL;
       on_close();
     }
   }
@@ -74,7 +75,7 @@ void Game::update(float delta_time) {
 
 void Game::render() {
   m_window.clear(conf::clear_color);
-  if (m_current_scene != NULL) 
+  if (m_current_scene != NULL)
     m_current_scene->render();
   m_window.display();
 }

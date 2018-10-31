@@ -1,5 +1,4 @@
-#ifndef SCENE_H
-#define SCENE_H
+#pragma once
 
 class Game;
 
@@ -14,8 +13,6 @@ public:
 
 protected:
   void render_grid();
+  
   Game &game;
 };
-
-#endif // SCENE_H
-
